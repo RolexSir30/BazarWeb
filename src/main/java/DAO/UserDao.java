@@ -80,26 +80,23 @@ public class UserDao {
 		try (SessionFactory sf = con.buildSessionFactory(); Session session = sf.openSession()) {
 			Transaction tx = session.beginTransaction();
 
-			// Utilisez HQL pour récupérer l'utilisateur en fonction du nom d'utilisateur
 			Query query = session.createQuery("FROM Users WHERE username = :username");
 			query.setParameter("username", username);
 
 			Users user = (Users) ((org.hibernate.query.Query) query).uniqueResult();
 
-			// Vérifiez si l'utilisateur existe et si le mot de passe correspond
 			if (user != null && user.getPassword().equals(password) && "client".equals(user.getRole())) {
 				tx.commit();
 
-				return true; // Nom d'utilisateur et mot de passe corrects
+				return true; 
 			}
 
 			tx.commit();
 		} catch (Exception e) {
 			e.printStackTrace();
-			// Gérez les exceptions selon vos besoins
 		}
 
-		return false; // Nom d'utilisateur ou mot de passe incorrects
+		return false; 
 	}
 	
 	
