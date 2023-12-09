@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import DAO.ProductDao;
-import bean.SQL;
+import classe.SQL;
 import entity.Products;
 
 /**

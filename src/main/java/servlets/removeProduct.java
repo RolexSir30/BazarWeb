@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import DAO.PanierDao;
 import DAO.UserDao;
-import bean.SQL;
+import classe.SQL;
 import entity.Users;
 
 /**

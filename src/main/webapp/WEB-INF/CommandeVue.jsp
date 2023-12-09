@@ -67,7 +67,7 @@ td:nth-child(6) {
 
     <%-- Récupérer la liste des commandes depuis la servlet --%>
     <%@ page import="java.util.ArrayList" %>
-    <%@ page import="bean.Commande" %>
+    <%@ page import="classe.Commande" %>
     <% 
         ArrayList<Commande> commandes = (ArrayList<Commande>) request.getAttribute("commandes");
      %>

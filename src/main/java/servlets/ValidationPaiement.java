@@ -21,7 +21,7 @@ import javax.servlet.http.HttpSession;
 import DAO.CarteBancaireDao;
 import DAO.PanierDao;
 import DAO.UserDao;
-import bean.SQL;
+import classe.SQL;
 import entity.Users;
 
 /**
@@ -283,7 +283,7 @@ public class ValidationPaiement extends HttpServlet {
 		if (Validation(request, response,idUsername)) {
 			
 			
-		ArrayList<bean.Product> panierPaye = SQL.retournerProduitsDuPaniers(idUsername);
+		ArrayList<classe.Product> panierPaye = SQL.retournerProduitsDuPaniers(idUsername);
 		System.out.println("panier payé : "+panierPaye);
         SQL.AjouterPanierCommande(idUsername,panierPaye);
         

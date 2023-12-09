@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import DAO.UserDao;
-import bean.SQL;
+import classe.SQL;
 import entity.Users;
 
 /**
@@ -54,7 +54,7 @@ public class HistoriqueCommande extends HttpServlet {
 		if(userdao.connectionClient(userId,password)) {
 	
 			
-		ArrayList<bean.Commande> commandes = SQL.retournerProduitsCommandes(userId);
+		ArrayList<classe.Commande> commandes = SQL.retournerProduitsCommandes(userId);
 		request.setAttribute("commandes", commandes);
 		System.out.println(commandes);
 		Users usertemp = userdao.InfoUser(userId);

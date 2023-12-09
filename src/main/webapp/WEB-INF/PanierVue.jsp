@@ -1,6 +1,6 @@
 <%@page import="entity.Paniers"%>
 <%@page import="entity.Products"%>
-<%@page import="bean.Product"%>
+<%@page import="classe.Product"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>

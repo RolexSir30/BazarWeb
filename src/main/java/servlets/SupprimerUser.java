@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import DAO.UserDao;
-import bean.SQL;
+import classe.SQL;
 
 /**
  * Servlet implementation class SupprimerUser

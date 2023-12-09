@@ -13,8 +13,8 @@ import javax.servlet.http.HttpSession;
 
 import DAO.ProductDao;
 import DAO.UserDao;
-import bean.Product;
-import bean.SQL;
+import classe.Product;
+import classe.SQL;
 import entity.Products;
 
 @WebServlet("/Client")

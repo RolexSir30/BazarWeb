@@ -11,7 +11,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-import bean.SQL;
+import classe.SQL;
 import entity.Users;
 
 public class UserDao {

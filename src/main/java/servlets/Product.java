@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import DAO.ProductDao;
 import DAO.UserDao;
-import bean.SQL;
+import classe.SQL;
 import entity.Products;
 
 /**
@@ -81,7 +81,7 @@ public class Product extends HttpServlet {
         String category_id = request.getParameter("category_id");
         String image = request.getParameter("image");
         
-        bean.Product producto = new bean.Product(name,description,price,stock_quantity,category_id,image);
+        classe.Product producto = new classe.Product(name,description,price,stock_quantity,category_id,image);
         
         
         ProductDao productdao = new ProductDao();

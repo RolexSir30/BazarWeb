@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import DAO.PanierDao;
 import DAO.UserDao;
-import bean.SQL;
+import classe.SQL;
 import entity.Paniers;
 
 /**

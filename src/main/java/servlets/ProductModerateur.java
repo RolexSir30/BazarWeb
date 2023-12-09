@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import DAO.ProductDao;
-import bean.SQL;
+import classe.SQL;
 import entity.Products;
 
 /**
