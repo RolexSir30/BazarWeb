@@ -48,10 +48,9 @@ public class SupressProductModerateur extends HttpServlet {
 		String username = request.getParameter("username");
 
 		
-		ArrayList<Products> products = productdao.rechercheproduitModo(username);
+		
 
         //System.out.println("moderateur liste pdts : "+products);
-        request.setAttribute("products", products);
         
 		request.setAttribute("clients", listeClients);
 		
@@ -62,13 +61,19 @@ public class SupressProductModerateur extends HttpServlet {
             int productId = Integer.parseInt(request.getParameter("idproduct"));
            //  SQL.supprimerDuStock(productId);
             productdao.supprimerUnElementDuStock(productId);
+            ArrayList<Products> products = productdao.rechercheproduitModo(username);
+            request.setAttribute("products", products);
+
         }
         else if (request.getParameter("deleteFromDB") != null) {
             int productId = Integer.parseInt(request.getParameter("idproduct"));
            // SQL.supprimerDeLaBDD(productId);
             productdao.supprimerProduitDelaBDD(productId);
+            ArrayList<Products> products = productdao.rechercheproduitModo(username);
+            request.setAttribute("products", products);
+
         }
-		
+
 		this.getServletContext().getRequestDispatcher("/WEB-INF/ModerateurConnected.jsp").forward(request, response);
 	}
 

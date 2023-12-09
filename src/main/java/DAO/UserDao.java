@@ -11,7 +11,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-import entity.Products;
+import bean.SQL;
 import entity.Users;
 
 public class UserDao {
@@ -62,6 +62,9 @@ public class UserDao {
 
 			tx.commit();
 			ProductDao.deleteProductsByUsername(username);
+			PanierDao.deletePaniersByUsername(username);
+			SQL.deleteCommandesByUsername(username);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			// Gérez les exceptions selon vos besoins

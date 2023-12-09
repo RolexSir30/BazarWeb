@@ -89,7 +89,7 @@ public class ValidationPaiement extends HttpServlet {
 		   	    		"    display: none;\r\n" + 
 		   	    		"}\r\n" + 
 		   	    		"</style>");
-		        out.println("<h1>Paiement confirmÃ© !!!</h1>");
+		        out.println("<h1>Paiement confirmé !!!</h1>");
 		        out.println("<p>Vous allez recevoir un mail avec vos informations a jour, merci pour vos achats !</p>");
 		        out.println("</body></html>");
 		        String historiqueCommandeURL = "HistoriqueCommande";

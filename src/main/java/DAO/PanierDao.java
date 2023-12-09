@@ -18,14 +18,31 @@ public class PanierDao {
 		//Paniers p = new Paniers((long) 35,(long) 37, 2);
 		
 		//addPanier(p);
-		List<Paniers> productspaniers= retournerProduitsDuPaniers2(33);
-	
-		for(Paniers p :productspaniers ) {
-			System.out.println(p.getQuantity());
-		}
+		deletePaniersByUsername("Mato");
 	}
 	
-	
+	public static void deletePaniersByUsername(String username) {
+		Configuration con = new Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(Paniers.class);
+
+		try (SessionFactory sf = con.buildSessionFactory(); Session session = sf.openSession()) {
+			Transaction tx = session.beginTransaction();
+
+			// Utilisez HQL pour supprimer l'utilisateur en fonction de son nom
+			// d'utilisateur
+			Query query = session.createQuery("DELETE FROM Paniers WHERE user_id = :userid");
+			
+			
+			query.setParameter("userid", UserDao.rechercheIdByUsername(username));
+
+			int rowCount = query.executeUpdate();
+			System.out.println("Rows affected: " + rowCount);
+
+			tx.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			// Gérez les exceptions selon vos besoins
+		}
+	}
 	
 	
     private static final Session session = HibernateSessionFactory.getSession();

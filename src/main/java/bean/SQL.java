@@ -4,14 +4,19 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import DAO.UserDao;
+
 public class SQL {
+	
+	
+	public static void main(String[] args) {
+		deleteCommandesByUsername("Mato");
+	}
 
 	static String userSQL = "root";
 	static String passwordSQL = "";
@@ -350,5 +355,23 @@ public class SQL {
 		return commandes;
 
 	}
+
+	public static void deleteCommandesByUsername(String username) {
+		// TODO Auto-generated method stub
+		Long idUser= UserDao.rechercheIdByUsername (username);
+		
+	        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ecommerce2023", userSQL,
+					passwordSQL)) {
+	            String deleteQuery = "DELETE FROM commande WHERE userId = ?";
+	            try (PreparedStatement statement = connection.prepareStatement(deleteQuery)) {
+	                statement.setLong(1, idUser);
+	                int rowsAffected = statement.executeUpdate();
+	
+	            }
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+	    }
+		
 
 }
